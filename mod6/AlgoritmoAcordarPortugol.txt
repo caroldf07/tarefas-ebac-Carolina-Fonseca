@@ -1,0 +1,23 @@
+INÍCIO
+    1. Abrir os olhos;
+    2. Procurar o celular;
+    3. Se achar o celular;
+        1. Ver que horas são;
+        2. Se o horário for maior ou igual a 6h20AM;
+            1. Guardar o celular;
+            2. Retirar o lençol de cima de si;
+            3. Levantar da cama;
+            4. Arrumar a cama;
+            5. Ir até a porta do quarto;
+            6. Se a porta estiver fechada;
+                1. Colocar a mão na maçaneta;
+                2. Girar a maçaneta 45º graus da esquerda para baixo;
+                3. Puxar a porta;
+                4. Sair do quarto;
+            7. Se a porta estiver aberta;
+            8. Sair do quarto;
+        3. Se for menor do que 6h20AM;
+            1. Voltar a dormir;
+    4. Se não achar o celular;
+        1. Continuar procurando até encontrá-lo;
+FIM
