@@ -1,7 +1,7 @@
 /**
  * @author carolinafonseca
  * @version 1.0
- * Classe responsável pelo cálculo da média de 4 notas
+ * Classe responsável pelo cálculo da média de 4 notas com controle de fluxo
  */
 public class TarefaControleFluxo {
     private int nota1 = 0;
