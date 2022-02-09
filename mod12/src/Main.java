@@ -2,34 +2,51 @@ import java.util.*;
 
 /**
  * @author carolinafonseca
- * @version 1.0
- * Classe referente à atividade do módulo 12 - Coleções parte 02 Array e Map
+ * @version 1.0 Classe referente à atividade do módulo 12 - Coleções parte 02 Array e Map
  */
 public class Main {
     public static void main(String[] args) {
 
-        /*
-         * Parte 01 da atividade, receber uma lista de nomes e ordenar por ordem alfabética
-         */
+
+    }
+
+    /**
+     * Atividade 01 é referente a receber uma lista de nomes e printá-los na tela
+     */
+    public void Atividade01() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite os nomes separados por vírgula (,) ");
         String nomes = scanner.next();
+        scanner.close();
+
         List<String> listaNomesSemTratamento = List.of(nomes.split(","));
         List<String> listaNomesComTratamento = new ArrayList<>();
         System.out.println("Lista de nomes em ordem alfabética");
         for (String nome : listaNomesSemTratamento) {
+            /*
+            Tratamento do nome e gênero para que fiquem no padrão de primeiro letra em maiúsculo.
+             */
             String primeiraLetra = nome.substring(0, 1).toUpperCase();
             String restoDoNome = nome.substring(1);
             nome = primeiraLetra + restoDoNome;
+
             listaNomesComTratamento.add(nome);
         }
         listaNomesComTratamento.stream().sorted().forEach(System.out::println);
+    }
 
-        /*
-         * Parte 02 da atividade, receber uma lista de nomes e gênero e ordenar por ordem alfabética cada grupo de gênero separadamente
-         */
-        System.out.print("Digite o nome e gênero de cada pessoa, separando o nome e o gênero pode traço (-) e as pessoas por vírgula (,). Exemplo: João-M ");
+    /**
+     * A atividade 02 é referente a receber uma lista de nome mais gênero, exemplo "Carol-F" e
+     * separar o nomes por lista de gênero
+     */
+    public void Atividade02() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(
+                "Digite o nome e gênero de cada pessoa, separando o nome e o gênero pode traço (-) " +
+                        "e as pessoas por vírgula (,). Exemplo: João-M ");
         String nomesEGeneros = scanner.next();
+        scanner.close();
+
         List<String> listaNomesEGeneros = List.of(nomesEGeneros.split(","));
         System.out.println("Lista de nomes em ordem alfabética");
         List<Map<String, String>> listaFeminino = new ArrayList<>();
@@ -53,10 +70,13 @@ public class Main {
             } else if (nomeGeneroMap.get(generoArray[0]).equalsIgnoreCase("M")) {
                 listaMasculino.add(nomeGeneroMap);
             } else {
-                System.out.println("Gênero inválido, por favor, tente novamente. Por enquanto, só aceitamos (F) Feminino ou (M) Masculino");
+                System.out.println(
+                        "Gênero inválido, por favor, tente novamente. Por enquanto, só aceitamos " +
+                                "(F) Feminino ou (M) Masculino");
             }
         }
 
-        System.out.print("Gênero feminino: " + listaFeminino + "\nGênero masculino: " + listaMasculino);
+        System.out.print(
+                "Gênero feminino: " + listaFeminino + "\nGênero masculino: " + listaMasculino);
     }
 }
