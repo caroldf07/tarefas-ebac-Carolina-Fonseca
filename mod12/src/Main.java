@@ -6,14 +6,15 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) {
-
+        atividade01();
+        atividade02();
 
     }
 
     /**
      * Atividade 01 é referente a receber uma lista de nomes e printá-los na tela
      */
-    public void Atividade01() {
+    public static void atividade01() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite os nomes separados por vírgula (,) ");
         String nomes = scanner.next();
@@ -39,7 +40,7 @@ public class Main {
      * A atividade 02 é referente a receber uma lista de nome mais gênero, exemplo "Carol-F" e
      * separar o nomes por lista de gênero
      */
-    public void Atividade02() {
+    public static void atividade02() {
         Scanner scanner = new Scanner(System.in);
         System.out.print(
                 "Digite o nome e gênero de cada pessoa, separando o nome e o gênero pode traço (-) " +
