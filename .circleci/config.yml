@@ -17,6 +17,17 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
+      - run:
+          name: Report results to DeepSource
+          command: |
+            # Generate coverage report in xml format
+            coverage xml
+
+            # Install deepsource CLI
+            curl https://deepsource.io/cli | sh
+
+            # From the root directory, run the report coverage command
+            ./bin/deepsource report --analyzer test-coverage --key python --value-file ./coverage.xml
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
