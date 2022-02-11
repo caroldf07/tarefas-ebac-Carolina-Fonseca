@@ -1,5 +1,7 @@
 version = 1
 
+test_patterns = ["test/**"]
+
 [[analyzers]]
 name = "test-coverage"
 enabled = true
@@ -11,6 +13,9 @@ enabled = true
 [[analyzers]]
 name = "docker"
 enabled = true
+
+  [analyzers.meta]
+  dockerfile_paths = ["/"]
 
 [[analyzers]]
 name = "sql"
