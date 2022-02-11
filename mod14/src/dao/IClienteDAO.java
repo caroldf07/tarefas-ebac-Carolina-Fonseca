@@ -19,7 +19,7 @@ public interface IClienteDAO {
      *
      * @param cpf Recebe apenas o cpf do cliente que se deseja excluir dos registros
      */
-    void excluir(Long cpf);
+    void excluir(long cpf);
 
     /**
      *
@@ -32,7 +32,7 @@ public interface IClienteDAO {
      * @param cpf Recebe apenas o cpf do cliente que se deseja consultar
      * @return Retorna o cliente especificado, caso ele existe no banco de dados
      */
-    Cliente consultar(Long cpf);
+    Cliente consultar(long cpf);
 
     /**
      *

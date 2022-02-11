@@ -33,7 +33,7 @@ public class ClienteSetDAO implements IClienteDAO {
      * @param cpf Recebe apenas o cpf do cliente que se deseja excluir dos registros
      */
     @Override
-    public void excluir(Long cpf) {
+    public void excluir(long cpf) {
         Cliente clienteEncontrado = null;
         for (Cliente cliente : this.set) {
             if (cliente.getCpf().equals(cpf)) {
@@ -65,7 +65,7 @@ public class ClienteSetDAO implements IClienteDAO {
      * @return Retorna o cliente solicitado caso ele exista no banco
      */
     @Override
-    public Cliente consultar(Long cpf) {
+    public Cliente consultar(long cpf) {
         for (Cliente cliente : this.set) {
             if (cliente.getCpf().equals(cpf)) {
                 return cliente;

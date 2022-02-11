@@ -38,7 +38,7 @@ public class ClienteMapDAO implements IClienteDAO {
      * @param cpf Recebe apenas o cpf do cliente que se deseja excluir dos registros
      */
     @Override
-    public void excluir(Long cpf) {
+    public void excluir(long cpf) {
         Cliente clienteCadastrado = this.map.get(cpf);
         this.map.remove(clienteCadastrado.getCpf(), clienteCadastrado);
 
@@ -61,7 +61,7 @@ public class ClienteMapDAO implements IClienteDAO {
      * @return Retorna o cliente solicitado caso ele exista no banco
      */
     @Override
-    public Cliente consultar(Long cpf) {
+    public Cliente consultar(long cpf) {
         return this.map.get(cpf);
     }
 
