@@ -1,10 +1,6 @@
-/**
- * @author carolina.fonseca
- */
-
-
+/** @author carolina.fonseca */
 public class PrimeiraClasse {
-    public static void main(String[] args) {
-        System.out.println("Hello Carolina");
-    }
+  public static void main(String[] args) {
+    System.out.println("Hello Carolina");
+  }
 }
