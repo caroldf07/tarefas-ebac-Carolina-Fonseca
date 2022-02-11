@@ -12,6 +12,9 @@ import java.util.TreeMap;
 public class ClienteMapDAO implements IClienteDAO {
     private Map<Long, Cliente> map;
 
+    /**
+     * Construtor baseado no TreeMap
+     */
     public ClienteMapDAO() {
         map = new TreeMap<>();
     }
@@ -63,7 +66,6 @@ public class ClienteMapDAO implements IClienteDAO {
     }
 
     /**
-     *
      * @return Retorna todos os clientes cadastrados no banco de dados
      */
     @Override

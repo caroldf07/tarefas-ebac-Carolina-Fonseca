@@ -12,6 +12,9 @@ import java.util.Set;
 public class ClienteSetDAO implements IClienteDAO {
     private Set<Cliente> set;
 
+    /**
+     * Construtor baseado em HashSet
+     */
     public ClienteSetDAO() {
         this.set = new HashSet<>();
     }
@@ -58,7 +61,6 @@ public class ClienteSetDAO implements IClienteDAO {
     }
 
     /**
-     *
      * @param cpf Recebe apenas o cpf do cliente que se deseja consultar
      * @return Retorna o cliente solicitado caso ele exista no banco
      */
@@ -73,7 +75,6 @@ public class ClienteSetDAO implements IClienteDAO {
     }
 
     /**
-     *
      * @return Retorna todos os clientes cadastrados no banco de dados
      */
     @Override
