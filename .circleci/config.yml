@@ -14,9 +14,40 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
+      - run : mvn test
+      - store_artifacts:
+          path:  target
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
+      - run:
+          name: Report results to DeepSource
+          command: |
+            # Generate coverage report in xml format
+            coverage xml
+
+            # Install deepsource CLI
+            curl https://deepsource.io/cli | sh
+
+            # From the root directory, run the report coverage command
+            ./bin/deepsource report --analyzer test-coverage --key python --value-file ./coverage.xml
+            
+build:
+  working_directory: /tmp
+  steps:
+    - run:
+        name: Creating Dummy Artifacts
+        command: |
+          echo "my artifact file" > /tmp/art-1;
+          mkdir /tmp/artifacts;
+          echo "my artifact files in a dir" > /tmp/artifacts/art-2;
+
+    - store_artifacts:
+        path: /tmp/art-1
+        destination: artifact-file
+
+    - store_artifacts:
+        path: /tmp/artifacts
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
