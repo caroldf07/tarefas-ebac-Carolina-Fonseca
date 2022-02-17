@@ -4,13 +4,12 @@
  */
 public class Tesla extends Car {
 
-
-    /**
-     * @param horsePower Potência do motor
-     * @param fuelSource Fonte do combustível
-     * @param color      cor do carro
-     */
-    public Tesla(int horsePower, String fuelSource, String color) {
-        super(horsePower, fuelSource, color);
-    }
+  /**
+   * @param horsePower Potência do motor
+   * @param fuelSource Fonte do combustível
+   * @param color cor do carro
+   */
+  public Tesla(int horsePower, String fuelSource, String color) {
+    super(horsePower, fuelSource, color);
+  }
 }
