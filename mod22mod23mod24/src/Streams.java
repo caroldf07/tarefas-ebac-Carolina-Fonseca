@@ -3,21 +3,18 @@ import java.util.*;
 /**
  * @author carolina on 18/mar/2022
  * @project tarefas-ebac-Carolina-Fonseca
- * Atividade de filtrar listas do módulo 22 - Streams e Expressões Lambdas
+ * Atividade de filtrar listas do módulo 22 - Streams e Expressões Lambdas // Refatorações por conta do módulo 23
  */
 public class Streams {
-    public static void main(String[] args) {
-        atividade22();
-    }
 
     /**
      * Ler uma lista de pessoas no console. Exemplo: Nome - genero, Nome - genero,...
      * Criar outra lista somente com as mulheres dessa lista
      * Printar a lista final
      */
-    private static void atividade22() {
+    public static void listaDeNomesFemininos() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print(
+        System.out.println(
                 "Digite o nome e gênero de cada pessoa, separando o nome e o gênero pode traço (-) "
                         + "e as pessoas por vírgula (,). Exemplo: João-M ");
         String nomesEGeneros = scanner.next();
