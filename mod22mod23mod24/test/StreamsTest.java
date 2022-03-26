@@ -1,129 +1,122 @@
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 /**
  * @author carolina on 25/mar/2022
- * @project tarefas-ebac-Carolina-Fonseca
- * Atividade Módulo 23 - Testes unitários com JUnit 4
+ * @project tarefas-ebac-Carolina-Fonseca Atividade Módulo 23 - Testes unitários com JUnit 4
  */
 public class StreamsTest {
-    @Test
-    public void deveRetornarNomesFemininos() {
-        //cenário
+  @Test
+  public void deveRetornarNomesFemininos() {
+    // cenário
 
-        //Configurando o input do teste para que não seja uma leitura do console, mas sim uma string
-        String input = "carol-f,joao-m,jose-m";
-        ByteArrayInputStream inputStream =
-                new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
-        System.setIn(inputStream);
+    // Configurando o input do teste para que não seja uma leitura do console, mas sim uma string
+    String input = "carol-f,joao-m,jose-m";
+    ByteArrayInputStream inputStream =
+        new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+    System.setIn(inputStream);
 
-        //Configurando a leitura do output do teste para que não seja no console, mas sim uma string
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(outputStream);
-        System.setOut(printStream);
+    // Configurando a leitura do output do teste para que não seja no console, mas sim uma string
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    PrintStream printStream = new PrintStream(outputStream);
+    System.setOut(printStream);
 
-        //ação
-        Streams.listaDeNomesFemininos();
+    // ação
+    Streams.listaDeNomesFemininos();
 
+    String[] lines = outputStream.toString().split(System.lineSeparator());
+    String actual = lines[lines.length - 1];
 
-        String[] lines = outputStream.toString().split(System.lineSeparator());
-        String actual = lines[lines.length - 1];
+    String expected = "Carol-F";
 
-        String expected = "Carol-F";
+    // resultado
+    assertEquals(expected, actual);
+  }
 
-        //resultado
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void naoDeveRetornarNomesFemininos() {
+    // cenário
 
-    @Test
-    public void naoDeveRetornarNomesFemininos() {
-        //cenário
+    // Configurando o input do teste para que não seja uma leitura do console, mas sim uma string
+    String input = "joao-m,jose-m";
+    ByteArrayInputStream inputStream =
+        new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+    System.setIn(inputStream);
 
-        //Configurando o input do teste para que não seja uma leitura do console, mas sim uma string
-        String input = "joao-m,jose-m";
-        ByteArrayInputStream inputStream =
-                new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
-        System.setIn(inputStream);
+    // Configurando a leitura do output do teste para que não seja no console, mas sim uma string
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    PrintStream printStream = new PrintStream(outputStream);
+    System.setOut(printStream);
 
-        //Configurando a leitura do output do teste para que não seja no console, mas sim uma string
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(outputStream);
-        System.setOut(printStream);
+    // ação
+    Streams.listaDeNomesFemininos();
 
-        //ação
-        Streams.listaDeNomesFemininos();
+    String[] lines = outputStream.toString().split(System.lineSeparator());
+    String actual = "";
+    if (lines.length > 1) actual = lines[lines.length - 1];
 
+    String expected = "";
 
-        String[] lines = outputStream.toString().split(System.lineSeparator());
-        String actual = "";
-        if (lines.length > 1)
-            actual = lines[lines.length - 1];
+    // resultado
+    assertEquals(expected, actual);
+  }
 
-        String expected = "";
+  @Test
+  public void naoDeveRetornarNadaCasoGeneroSejaInvalido() {
+    // cenário
 
-        //resultado
-        assertEquals(expected, actual);
-    }
+    // Configurando o input do teste para que não seja uma leitura do console, mas sim uma string
+    String input = "joao-p,jose-m";
+    ByteArrayInputStream inputStream =
+        new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+    System.setIn(inputStream);
 
-    @Test
-    public void naoDeveRetornarNadaCasoGeneroSejaInvalido() {
-        //cenário
+    // Configurando a leitura do output do teste para que não seja no console, mas sim uma string
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    PrintStream printStream = new PrintStream(outputStream);
+    System.setOut(printStream);
 
-        //Configurando o input do teste para que não seja uma leitura do console, mas sim uma string
-        String input = "joao-p,jose-m";
-        ByteArrayInputStream inputStream =
-                new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
-        System.setIn(inputStream);
+    // ação
+    Streams.listaDeNomesFemininos();
 
-        //Configurando a leitura do output do teste para que não seja no console, mas sim uma string
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(outputStream);
-        System.setOut(printStream);
+    String[] lines = outputStream.toString().split(System.lineSeparator());
+    String actual = lines[lines.length - 1];
 
-        //ação
-        Streams.listaDeNomesFemininos();
+    String expected =
+        "Gênero inválido, por favor, tente novamente. Por enquanto, só aceitamos (F) Feminino ou"
+            + " (M) Masculino";
 
+    // resultado
+    assertEquals(expected, actual);
+  }
 
-        String[] lines = outputStream.toString().split(System.lineSeparator());
-        String actual = lines[lines.length - 1];
+  @Test
+  public void naoDeveRetornarNadaCasoFalteGeneroDeAlguem() {
+    // cenário
 
-        String expected =
-                "Gênero inválido, por favor, tente novamente. Por enquanto, só aceitamos (F) Feminino ou (M) Masculino";
+    // Configurando o input do teste para que não seja uma leitura do console, mas sim uma string
+    String input = "joao,jose-m";
+    ByteArrayInputStream inputStream =
+        new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+    System.setIn(inputStream);
 
-        //resultado
-        assertEquals(expected, actual);
-    }
+    // Configurando a leitura do output do teste para que não seja no console, mas sim uma string
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    PrintStream printStream = new PrintStream(outputStream);
+    System.setOut(printStream);
 
-    @Test
-    public void naoDeveRetornarNadaCasoFalteGeneroDeAlguem() {
-        //cenário
+    // ação
+    Streams.listaDeNomesFemininos();
 
-        //Configurando o input do teste para que não seja uma leitura do console, mas sim uma string
-        String input = "joao,jose-m";
-        ByteArrayInputStream inputStream =
-                new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
-        System.setIn(inputStream);
+    String[] lines = outputStream.toString().split(System.lineSeparator());
+    String actual = lines[lines.length - 1];
 
-        //Configurando a leitura do output do teste para que não seja no console, mas sim uma string
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(outputStream);
-        System.setOut(printStream);
+    String expected = "Faltou a inclusão do gênero de joao";
 
-        //ação
-        Streams.listaDeNomesFemininos();
-
-
-        String[] lines = outputStream.toString().split(System.lineSeparator());
-        String actual = lines[lines.length - 1];
-
-        String expected =
-                "Faltou a inclusão do gênero de joao";
-
-        //resultado
-        assertEquals(expected, actual);
-    }
+    // resultado
+    assertEquals(expected, actual);
+  }
 }

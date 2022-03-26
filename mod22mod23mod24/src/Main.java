@@ -3,7 +3,7 @@
  * @project tarefas-ebac-Carolina-Fonseca
  */
 public class Main {
-    public static void main(String[] args) {
-        Streams.listaDeNomesFemininos();
-    }
+  public static void main(String[] args) {
+    Streams.listaDeNomesFemininos();
+  }
 }
