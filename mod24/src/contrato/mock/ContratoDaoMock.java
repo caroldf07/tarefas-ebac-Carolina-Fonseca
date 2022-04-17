@@ -7,20 +7,19 @@ import contrato.dao.IContratoDao;
  * @project tarefas-ebac-Carolina-Fonseca
  */
 public class ContratoDaoMock implements IContratoDao {
-    @Override
-    public void salvar() {
+  @Override
+  public void salvar() {}
 
-    }
+  @Override
+  public String buscar(String id) {
+    return "Sucesso";
+  }
 
-    @Override public String buscar(String id) {
-        return "Sucesso";
-    }
+  @Override
+  public void excluir(String id) {}
 
-    @Override public void excluir(String id) {
-
-    }
-
-    @Override public String atualizar(String id) {
-        return "Sucesso";
-    }
+  @Override
+  public String atualizar(String id) {
+    return "Sucesso";
+  }
 }

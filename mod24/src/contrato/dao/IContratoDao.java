@@ -5,11 +5,11 @@ package contrato.dao;
  * @project tarefas-ebac-Carolina-Fonseca
  */
 public interface IContratoDao {
-    void salvar();
+  void salvar();
 
-    String buscar(String id);
+  String buscar(String id);
 
-    void excluir(String id);
+  void excluir(String id);
 
-    String atualizar(String id);
+  String atualizar(String id);
 }
