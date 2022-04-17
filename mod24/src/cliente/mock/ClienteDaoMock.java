@@ -7,20 +7,19 @@ import cliente.dao.IClienteDao;
  * @project tarefas-ebac-Carolina-Fonseca
  */
 public class ClienteDaoMock implements IClienteDao {
-    @Override
-    public String salvar() {
-        return "Sucesso";
-    }
+  @Override
+  public String salvar() {
+    return "Sucesso";
+  }
 
-    @Override public String buscar(String id) {
-        return "Sucesso";
-    }
+  @Override
+  public String buscar(String id) {
+    return "Sucesso";
+  }
 
-    @Override public void excluir(String id) {
+  @Override
+  public void excluir(String id) {}
 
-    }
-
-    @Override public void atualizar(String id) {
-
-    }
+  @Override
+  public void atualizar(String id) {}
 }

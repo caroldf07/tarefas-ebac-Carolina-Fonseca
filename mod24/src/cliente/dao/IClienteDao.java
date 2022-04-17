@@ -5,11 +5,11 @@ package cliente.dao;
  * @project tarefas-ebac-Carolina-Fonseca
  */
 public interface IClienteDao {
-    String salvar();
+  String salvar();
 
-    String buscar(String id);
+  String buscar(String id);
 
-    void excluir(String id);
+  void excluir(String id);
 
-    void atualizar(String id);
+  void atualizar(String id);
 }

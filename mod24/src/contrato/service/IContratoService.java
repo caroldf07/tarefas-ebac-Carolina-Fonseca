@@ -5,9 +5,9 @@ package contrato.service;
  * @project tarefas-ebac-Carolina-Fonseca
  */
 public interface IContratoService {
-    String salvar();
+  String salvar();
 
-    //TODO
-    //Fazer métodos de buscar, excluir e atualizar
+  // TODO
+  // Fazer métodos de buscar, excluir e atualizar
 
 }

@@ -5,23 +5,23 @@ package cliente.dao;
  * @project tarefas-ebac-Carolina-Fonseca
  */
 public class ClienteDao implements IClienteDao {
-    @Override
-    public String salvar() {
-        throw new UnsupportedOperationException("Não funciona sem config de banco");
-    }
+  @Override
+  public String salvar() {
+    throw new UnsupportedOperationException("Não funciona sem config de banco");
+  }
 
-    @Override
-    public String buscar(String id) {
-        throw new UnsupportedOperationException("Não funciona sem config de banco");
+  @Override
+  public String buscar(String id) {
+    throw new UnsupportedOperationException("Não funciona sem config de banco");
+  }
 
-    }
+  @Override
+  public void excluir(String id) {
+    throw new UnsupportedOperationException("Não funciona sem config de banco");
+  }
 
-    @Override
-    public void excluir(String id) {
-        throw new UnsupportedOperationException("Não funciona sem config de banco");
-    }
-
-    @Override public void atualizar(String id) {
-        throw new UnsupportedOperationException("Não funciona sem config de banco");
-    }
+  @Override
+  public void atualizar(String id) {
+    throw new UnsupportedOperationException("Não funciona sem config de banco");
+  }
 }
