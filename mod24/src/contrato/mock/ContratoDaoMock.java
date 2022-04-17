@@ -11,4 +11,16 @@ public class ContratoDaoMock implements IContratoDao {
     public void salvar() {
 
     }
+
+    @Override public String buscar(String id) {
+        return "Sucesso";
+    }
+
+    @Override public void excluir(String id) {
+
+    }
+
+    @Override public String atualizar(String id) {
+        return "Sucesso";
+    }
 }

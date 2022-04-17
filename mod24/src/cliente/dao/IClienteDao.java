@@ -6,4 +6,10 @@ package cliente.dao;
  */
 public interface IClienteDao {
     String salvar();
+
+    String buscar(String id);
+
+    void excluir(String id);
+
+    void atualizar(String id);
 }

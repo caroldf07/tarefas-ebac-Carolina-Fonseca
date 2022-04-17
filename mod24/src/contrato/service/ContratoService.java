@@ -18,4 +18,17 @@ public class ContratoService implements IContratoService {
         contratoDao.salvar();
         return "Sucesso";
     }
+
+    public String buscar(String id) {
+        return contratoDao.buscar(id);
+    }
+
+    public String excluir(String id) {
+        contratoDao.excluir(id);
+        return "Sucesso";
+    }
+
+    public String atualizar(String id) {
+        return contratoDao.atualizar(id);
+    }
 }

@@ -9,4 +9,19 @@ public class ContratoDao implements IContratoDao {
     public void salvar() {
         throw new UnsupportedOperationException("Não funciona com o banco");
     }
+
+    @Override public String buscar(String id) {
+        throw new UnsupportedOperationException("Não funciona com o banco");
+
+    }
+
+    @Override public void excluir(String id) {
+        throw new UnsupportedOperationException("Não funciona com o banco");
+
+    }
+
+    @Override public String atualizar(String id) {
+        throw new UnsupportedOperationException("Não funciona com o banco");
+
+    }
 }

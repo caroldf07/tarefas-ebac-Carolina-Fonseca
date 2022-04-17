@@ -7,6 +7,9 @@ package contrato.dao;
 public interface IContratoDao {
     void salvar();
 
-    //TODO
-    //Fazer métodos de buscar, excluir e atualizar
+    String buscar(String id);
+
+    void excluir(String id);
+
+    String atualizar(String id);
 }
