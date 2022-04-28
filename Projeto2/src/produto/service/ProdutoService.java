@@ -4,13 +4,13 @@ import produto.dao.ProdutoDao;
 import produto.domain.Produto;
 
 public class ProdutoService {
-    private final ProdutoDao produtoDao;
+  private final ProdutoDao produtoDao;
 
-    public ProdutoService(ProdutoDao produtoDao) {
-        this.produtoDao = produtoDao;
-    }
+  public ProdutoService(ProdutoDao produtoDao) {
+    this.produtoDao = produtoDao;
+  }
 
-    public String cadastrar(Produto produto) {
-        return produtoDao.cadastrar(produto);
-    }
+  public String cadastrar(Produto produto) {
+    return produtoDao.cadastrar(produto);
+  }
 }
