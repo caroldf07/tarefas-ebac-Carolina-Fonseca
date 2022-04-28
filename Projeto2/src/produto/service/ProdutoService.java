@@ -14,7 +14,7 @@ public class ProdutoService {
         return produtoDao.cadastrar(produto);
     }
 
-    public String procurar(long codigo) {
+    public Produto procurar(long codigo) {
         return produtoDao.buscar(codigo);
     }
 

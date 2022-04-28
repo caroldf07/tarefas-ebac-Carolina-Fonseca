@@ -5,24 +5,19 @@ import produto.dao.ProdutoDao;
 import produto.dao.ProdutoDaoImpl;
 import produto.domain.Produto;
 import produto.mock.ProdutoDaoMockImpl;
-import produto.service.ProdutoService;
 
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ProdutoServiceTest {
-    Produto produto;
+public class ProdutoDaoTest {
     ProdutoDao produtoDao;
-    ProdutoService produtoService;
     ProdutoDao produtoDaoMock;
-    ProdutoService produtoServiceMock;
+    Produto produto;
 
-    public ProdutoServiceTest() {
+    public ProdutoDaoTest() {
         produtoDao = new ProdutoDaoImpl();
-        produtoService = new ProdutoService(produtoDao);
         produtoDaoMock = new ProdutoDaoMockImpl();
-        produtoServiceMock = new ProdutoService(produtoDaoMock);
     }
 
     @BeforeEach
@@ -32,39 +27,38 @@ public class ProdutoServiceTest {
 
     @Test
     @DisplayName("Deve retornar sucesso quando cadastrar um produto com sucesso")
-    void deveCriarUmNovoProdutoComSucesso() {
-        String retorno = produtoServiceMock.cadastrar(produto);
+    void deveCadastrarUmProdutoComSucesso() {
+        String retorno = produtoDaoMock.cadastrar(produto);
         assertEquals("Produto cadastrado com sucesso", retorno);
     }
 
     @Test
     @DisplayName("Deve retornar uma exception quando tentar cadastrar um produto")
-    void naoDeveCriarUmNovoProduto() {
+    void naoDeveCadastrarUmProduto() {
         RuntimeException exception = assertThrows(UnsupportedOperationException.class,
-                                                  () -> produtoService.cadastrar(produto));
+                                                  () -> produtoDao.cadastrar(produto));
         assertEquals("Não pode realizar operação sem o banco cadastrado", exception.getMessage());
     }
 
     @Test
-    @DisplayName("Deve retornar 'produto encontrado com sucesso' ao pesquisar o cliente")
-    void deveProcurarUmProdutoComSucesso() {
-        Produto retorno = produtoServiceMock.procurar(produto.getCodigo());
+    @DisplayName("Deve retornar 'produto encontrado com sucesso' ao pesquisar o produto")
+    void deveEncontrarUmProdutoComSucesso() {
+        Produto retorno = produtoDaoMock.buscar(produto.getCodigo());
         assertEquals(produto.toString(), retorno.toString());
     }
 
     @Test
-    @DisplayName("Deve retornar uma exception quando tentar procurar um produto")
+    @DisplayName("Deve retornar uma exception quando tentar encontrar uma produto")
     void naoDeveEncontrarUmProduto() {
         RuntimeException exception = assertThrows(UnsupportedOperationException.class,
-                                                  () -> produtoService.procurar(
-                                                          produto.getCodigo()));
+                                                  () -> produtoDao.buscar(produto.getCodigo()));
         assertEquals("Não pode realizar operação sem o banco cadastrado", exception.getMessage());
     }
 
     @Test
-    @DisplayName("Deve retornar um produto atualizado com sucesso")
+    @DisplayName("Deve retornar produto com dado atualizado")
     void deveAtualizarUmProdutoComSucesso() {
-        String retorno = produtoServiceMock.atualizar(produto.getCodigo());
+        String retorno = produtoDaoMock.atualizar(produto.getCodigo());
         assertEquals("Produto atualizado com sucesso", retorno);
     }
 
@@ -72,24 +66,22 @@ public class ProdutoServiceTest {
     @DisplayName("Deve retornar uma exception quando tentar atualizar um produto")
     void naoDeveAtualizarUmProduto() {
         RuntimeException exception = assertThrows(UnsupportedOperationException.class,
-                                                  () -> produtoService.atualizar(
-                                                          produto.getCodigo()));
+                                                  () -> produtoDao.atualizar(produto.getCodigo()));
         assertEquals("Não pode realizar operação sem o banco cadastrado", exception.getMessage());
     }
 
     @Test
     @DisplayName("Deve retornar true quando deletar um produto")
-    void deveDeletarUmProdutoComSucesso() {
-        boolean retorno = produtoServiceMock.deletar(produto.getCodigo());
+    void deveDeletarUmProduto() {
+        boolean retorno = produtoDaoMock.deletar(produto.getCodigo());
         assertTrue(retorno);
     }
 
     @Test
-    @DisplayName("Deve retornar uma exception quando tentar deletar um produto")
+    @DisplayName("Deve retornar uma exception quando tentar atualizar um produto")
     void naoDeveDeletarUmProduto() {
         RuntimeException exception = assertThrows(UnsupportedOperationException.class,
-                                                  () -> produtoService.deletar(
-                                                          produto.getCodigo()));
+                                                  () -> produtoDao.deletar(produto.getCodigo()));
         assertEquals("Não pode realizar operação sem o banco cadastrado", exception.getMessage());
     }
 }

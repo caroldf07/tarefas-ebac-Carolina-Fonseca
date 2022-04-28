@@ -3,6 +3,8 @@ package produto.mock;
 import produto.dao.ProdutoDao;
 import produto.domain.Produto;
 
+import java.math.BigDecimal;
+
 public class ProdutoDaoMockImpl implements ProdutoDao {
     @Override
     public String cadastrar(Produto produto) {
@@ -10,8 +12,9 @@ public class ProdutoDaoMockImpl implements ProdutoDao {
     }
 
     @Override
-    public String buscar(long codigo) {
-        return "Produto encontrado com sucesso";
+    public Produto buscar(long codigo) {
+        return new Produto(1L, "mouse", "descrição do mouse", new BigDecimal("10.00"));
+
     }
 
     @Override

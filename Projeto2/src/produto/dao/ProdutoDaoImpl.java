@@ -10,7 +10,7 @@ public class ProdutoDaoImpl implements ProdutoDao {
     }
 
     @Override
-    public String buscar(long codigo) {
+    public Produto buscar(long codigo) {
         throw new UnsupportedOperationException(
                 "Não pode realizar operação sem o banco cadastrado");
     }
