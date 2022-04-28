@@ -1,11 +1,11 @@
 package generic;
 
 public interface GenericDao<T> {
-    String cadastrar(T entity);
+  String cadastrar(T entity);
 
-    T buscar(long chave);
+  T buscar(long chave);
 
-    String atualizar(long chave);
+  String atualizar(long chave);
 
-    boolean deletar(long chave);
+  boolean deletar(long chave);
 }
