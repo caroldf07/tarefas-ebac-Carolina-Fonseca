@@ -7,7 +7,7 @@ import java.util.TreeMap;
 
 /** @author carolinafonseca Classe de implementação Map da interface DAO do Cliente */
 public class ClienteMapDAO implements IClienteDAO {
-  private Map<Long, Cliente> map;
+  private final Map<Long, Cliente> map;
 
   /** Construtor baseado no TreeMap */
   public ClienteMapDAO() {

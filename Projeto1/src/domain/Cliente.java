@@ -4,12 +4,12 @@ import java.util.Objects;
 
 /** @author carolinafonseca Classe de domínio referente ao Cliente */
 public class Cliente {
-  private String nome;
-  private Long cpf;
-  private Long telefone;
-  private String endereco;
-  private String cidade;
-  private String estado;
+  private final String nome;
+  private final Long cpf;
+  private final Long telefone;
+  private final String endereco;
+  private final String cidade;
+  private final String estado;
 
   /**
    * @param nome Nome do cliente

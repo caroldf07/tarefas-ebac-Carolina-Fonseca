@@ -92,7 +92,7 @@ public class Projeto1 {
   }
 
   private static void consultar(String cpf) {
-    Cliente cliente = iClienteDAO.consultar(Long.valueOf(cpf.trim()));
+    Cliente cliente = iClienteDAO.consultar(Long.parseLong(cpf.trim()));
     if (cliente != null) {
 
       opcao =
@@ -119,7 +119,7 @@ public class Projeto1 {
   }
 
   private static void excluir(String cpf) {
-    iClienteDAO.excluir(Long.valueOf(cpf.trim()));
+    iClienteDAO.excluir(Long.parseLong(cpf.trim()));
     opcao =
         JOptionPane.showInputDialog(
             null,
@@ -133,7 +133,7 @@ public class Projeto1 {
   }
 
   private static void alterar(String cpf) {
-    Cliente cliente = iClienteDAO.consultar(Long.valueOf(cpf.trim()));
+    Cliente cliente = iClienteDAO.consultar(Long.parseLong(cpf.trim()));
     dados =
         JOptionPane.showInputDialog(
             null,

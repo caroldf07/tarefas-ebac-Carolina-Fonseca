@@ -2,13 +2,9 @@ package cliente.service;
 
 import cliente.dao.IClienteDao;
 
-/**
- * @author Carolina.Fonseca on 12/04/2022
- * @project tarefas-ebac-Carolina-Fonseca
- */
 public class ClienteService {
 
-    private IClienteDao clienteDao;
+    private final IClienteDao clienteDao;
 
     public ClienteService(IClienteDao clienteDao) {
         this.clienteDao = clienteDao;

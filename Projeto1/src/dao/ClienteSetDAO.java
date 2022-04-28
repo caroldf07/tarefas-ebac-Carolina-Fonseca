@@ -7,7 +7,7 @@ import java.util.Set;
 
 /** @author carolinafonseca Classe de implementação Set da interface DAO do Cliente */
 public class ClienteSetDAO implements IClienteDAO {
-  private Set<Cliente> set;
+  private final Set<Cliente> set;
 
   /** Construtor baseado em HashSet */
   public ClienteSetDAO() {
