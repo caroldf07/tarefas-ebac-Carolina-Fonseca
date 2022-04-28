@@ -18,13 +18,15 @@ public class ClienteServiceTest {
     ClienteService clienteServiceMock;
     Cliente cliente;
 
-    @BeforeEach
-    void setup() {
+    public ClienteServiceTest() {
         clienteDao = new ClienteDaoImpl();
         clienteDaoMock = new ClienteDaoMockImpl();
         clienteService = new ClienteService(clienteDao);
         clienteServiceMock = new ClienteService(clienteDaoMock);
+    }
 
+    @BeforeEach
+    void setup() {
         cliente = new Cliente("Carolina", "12312312312", "1199999999",
                               new Endereco("Rua dos bobos", "S/N", "", "São Paulo", "SP"));
     }

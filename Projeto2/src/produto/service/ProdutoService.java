@@ -13,4 +13,16 @@ public class ProdutoService {
     public String cadastrar(Produto produto) {
         return produtoDao.cadastrar(produto);
     }
+
+    public String procurar(long codigo) {
+        return produtoDao.buscar(codigo);
+    }
+
+    public String atualizar(long codigo) {
+        return produtoDao.atualizar(codigo);
+    }
+
+    public boolean deletar(long codigo) {
+        return produtoDao.deletar(codigo);
+    }
 }
