@@ -1,4 +1,3 @@
 package generic;
 
-public interface Persistente {
-}
+public interface Persistente {}
