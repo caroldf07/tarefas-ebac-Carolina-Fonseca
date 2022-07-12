@@ -1,12 +1,16 @@
 package produto.domain;
 
+import generic.Persistente;
+import generic.TipoChave;
+
 import java.math.BigDecimal;
 
-public class Produto {
-    private final long codigo;
-    private final String nome;
-    private final String descricaoProduto;
-    private final BigDecimal valor;
+public class Produto implements Persistente {
+    @TipoChave(tipo = "codigo")
+    private long codigo;
+    private String nome;
+    private String descricaoProduto;
+    private BigDecimal valor;
 
     public Produto(long codigo, String nome, String descricaoProduto, BigDecimal valor) {
         this.codigo = codigo;
@@ -31,6 +35,7 @@ public class Produto {
         return valor;
     }
 
+
     @Override
     public String toString() {
         return "Produto{" +
@@ -39,5 +44,21 @@ public class Produto {
                 ", descricaoProduto='" + descricaoProduto + '\'' +
                 ", valor=" + valor +
                 '}';
+    }
+
+    public void setCodigo(long codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setDescricaoProduto(String descricaoProduto) {
+        this.descricaoProduto = descricaoProduto;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
     }
 }

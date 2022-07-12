@@ -10,7 +10,7 @@ public class ProdutoService {
         this.produtoDao = produtoDao;
     }
 
-    public String cadastrar(Produto produto) {
+    public boolean cadastrar(Produto produto) {
         return produtoDao.cadastrar(produto);
     }
 
@@ -18,11 +18,11 @@ public class ProdutoService {
         return produtoDao.buscar(codigo);
     }
 
-    public String atualizar(long codigo) {
-        return produtoDao.atualizar(codigo);
+    public void atualizar(Produto produto) {
+        produtoDao.atualizar(produto);
     }
 
-    public boolean deletar(long codigo) {
-        return produtoDao.deletar(codigo);
+    public void deletar(long codigo) {
+        produtoDao.deletar(codigo);
     }
 }

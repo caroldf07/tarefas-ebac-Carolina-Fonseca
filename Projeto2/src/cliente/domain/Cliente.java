@@ -1,7 +1,11 @@
 package cliente.domain;
 
-public class Cliente {
+import generic.Persistente;
+import generic.TipoChave;
+
+public class Cliente implements Persistente {
     private final String nome;
+    @TipoChave(tipo = "cpf")
     private final String cpf;
     private final String telefone;
     private final Endereco endereco;

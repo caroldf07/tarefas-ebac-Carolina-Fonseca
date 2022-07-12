@@ -1,29 +1,20 @@
 package produto.dao;
 
+import generic.GenericDaoImpl;
 import produto.domain.Produto;
 
-public class ProdutoDaoImpl implements ProdutoDao {
+public class ProdutoDaoImpl extends GenericDaoImpl<Produto, Long> implements ProdutoDao {
     @Override
-    public String cadastrar(Produto produto) {
-        throw new UnsupportedOperationException(
-                "Não pode realizar operação sem o banco cadastrado");
+    public Class<Produto> getTipoClasse() {
+        return Produto.class;
     }
 
     @Override
-    public Produto buscar(long codigo) {
-        throw new UnsupportedOperationException(
-                "Não pode realizar operação sem o banco cadastrado");
+    public void atualizarDados(Produto entity, Produto entityCadastrado) {
+        entityCadastrado.setCodigo(entity.getCodigo());
+        entityCadastrado.setDescricaoProduto(entity.getDescricaoProduto());
+        entityCadastrado.setNome(entity.getNome());
+        entityCadastrado.setValor(entity.getValor());
     }
 
-    @Override
-    public String atualizar(long codigo) {
-        throw new UnsupportedOperationException(
-                "Não pode realizar operação sem o banco cadastrado");
-    }
-
-    @Override
-    public boolean deletar(long codigo) {
-        throw new UnsupportedOperationException(
-                "Não pode realizar operação sem o banco cadastrado");
-    }
 }

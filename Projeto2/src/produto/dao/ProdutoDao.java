@@ -1,14 +1,8 @@
 package produto.dao;
 
+import generic.GenericDao;
 import produto.domain.Produto;
 
-public interface ProdutoDao {
+public interface ProdutoDao extends GenericDao<Produto,Long> {
 
-    String cadastrar(Produto produto);
-
-    Produto buscar(long codigo);
-
-    String atualizar(long codigo);
-
-    boolean deletar(long codigo);
 }

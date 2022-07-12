@@ -1,11 +1,15 @@
 package generic;
 
-public interface GenericDao<T> {
-    String cadastrar(T entity);
+import java.io.Serializable;
+import java.util.Collection;
 
-    T buscar(long chave);
+public interface GenericDao<T extends Persistente, E extends Serializable> {
+    boolean cadastrar(T entity);
 
-    String atualizar(long chave);
+    T buscar(E chave);
 
-    boolean deletar(long chave);
+    void atualizar(T entity);
+
+    void deletar(E chave);
+    public Collection<T> buscarTodos();
 }
