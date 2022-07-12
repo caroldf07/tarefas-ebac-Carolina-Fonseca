@@ -34,12 +34,9 @@ public class ClienteServiceTest {
     @Test
     @DisplayName("Deve retornar sucesso quando cadastrar um cliente com sucesso")
     void deveCadastrarUmClienteComSucesso() {
-        //cenário já preparado no setup();
 
-        //ação
         String retorno = clienteServiceMock.cadastrar(cliente);
 
-        //validação
         assertEquals("Cliente cadastrado com sucesso", retorno);
     }
 
