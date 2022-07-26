@@ -4,60 +4,67 @@ import generic.Chave;
 import generic.Persistente;
 
 public class Cliente implements Persistente {
-    private String nome;
-    @Chave("getCpf")
-    private String cpf;
-    private String telefone;
-    private Endereco endereco;
+  private String nome;
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+  @Chave("getCpf")
+  private String cpf;
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+  private String telefone;
+  private Endereco endereco;
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
+  public void setCpf(String cpf) {
+    this.cpf = cpf;
+  }
 
-    public Cliente(String nome, String cpf, String telefone, Endereco endereco) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.endereco = endereco;
-    }
+  public void setTelefone(String telefone) {
+    this.telefone = telefone;
+  }
 
-    public String getNome() {
-        return nome;
-    }
+  public void setEndereco(Endereco endereco) {
+    this.endereco = endereco;
+  }
 
-    public String getCpf() {
-        return cpf;
-    }
+  public Cliente(String nome, String cpf, String telefone, Endereco endereco) {
+    this.nome = nome;
+    this.cpf = cpf;
+    this.telefone = telefone;
+    this.endereco = endereco;
+  }
 
-    public String getTelefone() {
-        return telefone;
-    }
+  public String getNome() {
+    return nome;
+  }
 
-    public Endereco getEndereco() {
-        return endereco;
-    }
+  public String getCpf() {
+    return cpf;
+  }
 
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "nome='" + nome + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", endereco=" + endereco +
-                '}';
-    }
+  public String getTelefone() {
+    return telefone;
+  }
 
+  public Endereco getEndereco() {
+    return endereco;
+  }
 
+  @Override
+  public String toString() {
+    return "Cliente{"
+        + "nome='"
+        + nome
+        + '\''
+        + ", cpf='"
+        + cpf
+        + '\''
+        + ", telefone='"
+        + telefone
+        + '\''
+        + ", endereco="
+        + endereco
+        + '}';
+  }
 }

@@ -1,64 +1,69 @@
 package produto.domain;
 
-import generic.Persistente;
 import generic.Chave;
-
+import generic.Persistente;
 import java.math.BigDecimal;
 
 public class Produto implements Persistente {
-    @Chave("getCodigo")
-    private long codigo;
-    private String nome;
-    private String descricaoProduto;
-    private BigDecimal valor;
+  @Chave("getCodigo")
+  private long codigo;
 
-    public Produto(long codigo, String nome, String descricaoProduto, BigDecimal valor) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.descricaoProduto = descricaoProduto;
-        this.valor = valor;
-    }
+  private String nome;
+  private String descricaoProduto;
+  private BigDecimal valor;
 
-    public long getCodigo() {
-        return codigo;
-    }
+  public Produto(long codigo, String nome, String descricaoProduto, BigDecimal valor) {
+    this.codigo = codigo;
+    this.nome = nome;
+    this.descricaoProduto = descricaoProduto;
+    this.valor = valor;
+  }
 
-    public String getNome() {
-        return nome;
-    }
+  public long getCodigo() {
+    return codigo;
+  }
 
-    public String getDescricaoProduto() {
-        return descricaoProduto;
-    }
+  public String getNome() {
+    return nome;
+  }
 
-    public BigDecimal getValor() {
-        return valor;
-    }
+  public String getDescricaoProduto() {
+    return descricaoProduto;
+  }
 
+  public BigDecimal getValor() {
+    return valor;
+  }
 
-    @Override
-    public String toString() {
-        return "Produto{" +
-                "codigo=" + codigo +
-                ", nome='" + nome + '\'' +
-                ", descricaoProduto='" + descricaoProduto + '\'' +
-                ", valor=" + valor +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "Produto{"
+        + "codigo="
+        + codigo
+        + ", nome='"
+        + nome
+        + '\''
+        + ", descricaoProduto='"
+        + descricaoProduto
+        + '\''
+        + ", valor="
+        + valor
+        + '}';
+  }
 
-    public void setCodigo(long codigo) {
-        this.codigo = codigo;
-    }
+  public void setCodigo(long codigo) {
+    this.codigo = codigo;
+  }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 
-    public void setDescricaoProduto(String descricaoProduto) {
-        this.descricaoProduto = descricaoProduto;
-    }
+  public void setDescricaoProduto(String descricaoProduto) {
+    this.descricaoProduto = descricaoProduto;
+  }
 
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
-    }
+  public void setValor(BigDecimal valor) {
+    this.valor = valor;
+  }
 }
