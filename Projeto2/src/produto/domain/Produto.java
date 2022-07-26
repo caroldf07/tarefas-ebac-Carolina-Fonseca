@@ -1,12 +1,12 @@
 package produto.domain;
 
 import generic.Persistente;
-import generic.TipoChave;
+import generic.Chave;
 
 import java.math.BigDecimal;
 
 public class Produto implements Persistente {
-    @TipoChave(tipo = "codigo")
+    @Chave("getCodigo")
     private long codigo;
     private String nome;
     private String descricaoProduto;

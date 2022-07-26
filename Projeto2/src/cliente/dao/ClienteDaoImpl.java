@@ -1,29 +1,25 @@
 package cliente.dao;
 
 import cliente.domain.Cliente;
+import generic.GenericDaoImpl;
 
-public class ClienteDaoImpl implements ClienteDao {
-    @Override
-    public String cadastrar(Cliente cliente) {
-        throw new UnsupportedOperationException(
-                "Não pode realizar operação sem o banco cadastrado");
+public class ClienteDaoImpl extends GenericDaoImpl<Cliente, String> implements ClienteDao {
+
+    public ClienteDaoImpl() {
+        super();
     }
 
     @Override
-    public Cliente buscar(String cpf) {
-        throw new UnsupportedOperationException(
-                "Não pode realizar operação sem o banco cadastrado");
+    public Class<Cliente> getTipoClasse() {
+        return Cliente.class;
     }
 
     @Override
-    public String atualizar(String cpf) {
-        throw new UnsupportedOperationException(
-                "Não pode realizar operação sem o banco cadastrado");
+    public void atualizarDados(Cliente entity, Cliente entityCadastrado) {
+        entityCadastrado.setCpf(entity.getCpf());
+        entityCadastrado.setNome(entity.getNome());
+        entityCadastrado.setEndereco(entity.getEndereco());
+        entityCadastrado.setTelefone(entityCadastrado.getTelefone());
     }
 
-    @Override
-    public boolean deletar(String cpf) {
-        throw new UnsupportedOperationException(
-                "Não pode realizar operação sem o banco cadastrado");
-    }
 }

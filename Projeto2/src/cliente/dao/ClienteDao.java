@@ -1,14 +1,8 @@
 package cliente.dao;
 
 import cliente.domain.Cliente;
+import generic.GenericDao;
 
-public interface ClienteDao {
+public interface ClienteDao extends GenericDao<Cliente,String> {
 
-    String cadastrar(Cliente cliente);
-
-    Cliente buscar(String cpf);
-
-    String atualizar(String cpf);
-
-    boolean deletar(String cpf);
 }

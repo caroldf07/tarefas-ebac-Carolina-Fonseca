@@ -2,29 +2,33 @@ package cliente.mock;
 
 import cliente.dao.ClienteDao;
 import cliente.domain.Cliente;
-import cliente.domain.Endereco;
+
+import java.util.Collection;
 
 public class ClienteDaoMockImpl implements ClienteDao {
+
     @Override
-    public String cadastrar(Cliente cliente) {
-        return "Cliente cadastrado com sucesso";
+    public boolean cadastrar(Cliente entity) {
+        return false;
     }
 
     @Override
-    public Cliente buscar(String cpf) {
-        return new Cliente("Carolina", "12312312312", "1199999999",
-                           new Endereco("Rua dos bobos", "S/N", "", "São Paulo", "SP"));
+    public Cliente buscar(String chave) {
+        return null;
     }
 
     @Override
-    public String atualizar(String cpf) {
-        this.buscar(cpf);
-        return "Cliente atualizado com sucesso";
+    public void atualizar(Cliente entity) {
+
     }
 
     @Override
-    public boolean deletar(String cpf) {
-        this.buscar(cpf);
-        return true;
+    public void deletar(String chave) {
+
+    }
+
+    @Override
+    public Collection<Cliente> buscarTodos() {
+        return null;
     }
 }

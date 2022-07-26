@@ -12,21 +12,25 @@ public abstract class GenericDaoImpl<T extends Persistente, E extends Serializab
 
     private SingletonMap singletonMap;
 
+    public GenericDaoImpl() {
+        this.singletonMap = SingletonMap.getInstance();
+    }
+
     public abstract Class<T> getTipoClasse();
 
     public abstract void atualizarDados(T entity, T entityCadastrado);
 
-    public Long getChave(T entity) {
-        Field[] fields = entity.getClass().getFields();
-        Long returnValue = null;
+    public E getChave(T entity) {
+        Field[] fields = entity.getClass().getDeclaredFields();
+        E returnValue = null;
 
         for (Field field : fields) {
-            if (field.isAnnotationPresent(TipoChave.class)) {
-                TipoChave tipoChave = field.getAnnotation(TipoChave.class);
-                String nome = tipoChave.tipo();
+            if (field.isAnnotationPresent(Chave.class)) {
+                Chave chave = field.getAnnotation(Chave.class);
+                String nome = chave.value();
                 try {
                     Method method = entity.getClass().getMethod(nome);
-                    returnValue = (Long) method.invoke(entity);
+                    returnValue = (E) method.invoke(entity);
                     return returnValue;
                 } catch (NoSuchMethodException | IllegalAccessException |
                          InvocationTargetException e) {

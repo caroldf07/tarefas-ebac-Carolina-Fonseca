@@ -3,28 +3,32 @@ package produto.mock;
 import produto.dao.ProdutoDao;
 import produto.domain.Produto;
 
-import java.math.BigDecimal;
+import java.util.Collection;
 
 public class ProdutoDaoMockImpl implements ProdutoDao {
+
     @Override
-    public String cadastrar(Produto produto) {
-        return "Produto cadastrado com sucesso";
+    public boolean cadastrar(Produto entity) {
+        return false;
     }
 
     @Override
-    public Produto buscar(long codigo) {
-        return new Produto(1L, "mouse", "descrição do mouse", new BigDecimal("10.00"));
+    public Produto buscar(Long chave) {
+        return null;
+    }
+
+    @Override
+    public void atualizar(Produto entity) {
 
     }
 
     @Override
-    public String atualizar(long codigo) {
-        this.buscar(codigo);
-        return "Produto atualizado com sucesso";
+    public void deletar(Long chave) {
+
     }
 
     @Override
-    public boolean deletar(long codigo) {
-        return true;
+    public Collection<Produto> buscarTodos() {
+        return null;
     }
 }

@@ -10,7 +10,7 @@ public class ClienteService {
         this.clienteDao = clienteDao;
     }
 
-    public String cadastrar(Cliente cliente) {
+    public boolean cadastrar(Cliente cliente) {
         return clienteDao.cadastrar(cliente);
     }
 
@@ -18,11 +18,11 @@ public class ClienteService {
         return clienteDao.buscar(cpf);
     }
 
-    public String atualizar(String cpf) {
-        return clienteDao.atualizar(cpf);
+    public void atualizar(Cliente cliente) {
+        clienteDao.atualizar(cliente);
     }
 
-    public boolean deletar(String cpf) {
-        return clienteDao.deletar(cpf);
+    public void deletar(String cpf) {
+        clienteDao.deletar(cpf);
     }
 }

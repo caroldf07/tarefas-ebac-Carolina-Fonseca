@@ -4,6 +4,11 @@ import generic.GenericDaoImpl;
 import produto.domain.Produto;
 
 public class ProdutoDaoImpl extends GenericDaoImpl<Produto, Long> implements ProdutoDao {
+
+    public ProdutoDaoImpl() {
+        super();
+    }
+
     @Override
     public Class<Produto> getTipoClasse() {
         return Produto.class;

@@ -1,14 +1,30 @@
 package cliente.domain;
 
+import generic.Chave;
 import generic.Persistente;
-import generic.TipoChave;
 
 public class Cliente implements Persistente {
-    private final String nome;
-    @TipoChave(tipo = "cpf")
-    private final String cpf;
-    private final String telefone;
-    private final Endereco endereco;
+    private String nome;
+    @Chave("getCpf")
+    private String cpf;
+    private String telefone;
+    private Endereco endereco;
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
 
     public Cliente(String nome, String cpf, String telefone, Endereco endereco) {
         this.nome = nome;
@@ -42,4 +58,6 @@ public class Cliente implements Persistente {
                 ", endereco=" + endereco +
                 '}';
     }
+
+
 }
