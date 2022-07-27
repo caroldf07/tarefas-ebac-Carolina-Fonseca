@@ -1,4 +1,4 @@
-package generic;
+package generic.dao;
 
 import java.util.HashMap;
 import java.util.Map;

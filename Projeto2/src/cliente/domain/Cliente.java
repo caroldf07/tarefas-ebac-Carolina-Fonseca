@@ -1,7 +1,7 @@
 package cliente.domain;
 
-import generic.Chave;
-import generic.Persistente;
+import generic.dao.Chave;
+import generic.dao.Persistente;
 
 public class Cliente implements Persistente {
     private String nome;

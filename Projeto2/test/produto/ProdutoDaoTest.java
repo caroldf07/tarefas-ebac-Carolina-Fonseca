@@ -43,7 +43,8 @@ class ProdutoDaoTest {
     void deveAtualizarUmProdutoComSucesso() {
         produto.setNome("teclado");
         produtoDao.atualizar(produto);
-        assertEquals("teclado", produto.getNome());
+        Produto retorno = produtoDao.buscar(produto.getCodigo());
+        assertEquals("teclado", retorno.getNome());
     }
 
     @Test

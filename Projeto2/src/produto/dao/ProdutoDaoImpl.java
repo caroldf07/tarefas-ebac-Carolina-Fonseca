@@ -1,6 +1,6 @@
 package produto.dao;
 
-import generic.GenericDaoImpl;
+import generic.dao.GenericDaoImpl;
 import produto.domain.Produto;
 
 public class ProdutoDaoImpl extends GenericDaoImpl<Produto, Long> implements ProdutoDao {

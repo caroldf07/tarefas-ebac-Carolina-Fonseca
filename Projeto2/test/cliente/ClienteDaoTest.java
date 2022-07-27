@@ -45,7 +45,8 @@ class ClienteDaoTest {
     void deveAtualizarUmClienteComSucesso() {
         cliente.setNome("Sofia");
         clienteDao.atualizar(cliente);
-        assertEquals("Sofia", cliente.getNome());
+        Cliente retorno = clienteDao.buscar(cliente.getCpf());
+        assertEquals("Sofia", retorno.getNome());
     }
 
     @Test

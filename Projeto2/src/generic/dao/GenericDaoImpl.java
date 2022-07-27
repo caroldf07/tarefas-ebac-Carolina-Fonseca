@@ -1,10 +1,9 @@
-package generic;
+package generic.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +11,7 @@ public abstract class GenericDaoImpl<T extends Persistente, E extends Serializab
 
     private SingletonMap singletonMap;
 
-    public GenericDaoImpl() {
+    protected GenericDaoImpl() {
         this.singletonMap = SingletonMap.getInstance();
     }
 
@@ -48,7 +47,7 @@ public abstract class GenericDaoImpl<T extends Persistente, E extends Serializab
     @Override
     public boolean cadastrar(T entity) {
         Map<E, T> mapaInterno = getMapa();
-        E chave = (E) getChave(entity);
+        E chave = getChave(entity);
         if (mapaInterno.containsKey(chave)) {
             return false;
         }
@@ -79,7 +78,7 @@ public abstract class GenericDaoImpl<T extends Persistente, E extends Serializab
     @Override
     public void atualizar(T entity) {
         Map<E, T> mapaInterno = getMapa();
-        E chave = (E) getChave(entity);
+        E chave = getChave(entity);
         T objetoCadastrado = mapaInterno.get(chave);
         if (objetoCadastrado != null) {
             atualizarDados(entity, objetoCadastrado);
@@ -92,9 +91,4 @@ public abstract class GenericDaoImpl<T extends Persistente, E extends Serializab
         return mapaInterno.get(valor);
     }
 
-    @Override
-    public Collection<T> buscarTodos() {
-        Map<E, T> mapaInterno = getMapa();
-        return mapaInterno.values();
-    }
 }

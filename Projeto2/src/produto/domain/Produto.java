@@ -1,7 +1,7 @@
 package produto.domain;
 
-import generic.Persistente;
-import generic.Chave;
+import generic.dao.Persistente;
+import generic.dao.Chave;
 
 import java.math.BigDecimal;
 

@@ -1,7 +1,7 @@
 package cliente.dao;
 
 import cliente.domain.Cliente;
-import generic.GenericDaoImpl;
+import generic.dao.GenericDaoImpl;
 
 public class ClienteDaoImpl extends GenericDaoImpl<Cliente, String> implements ClienteDao {
 

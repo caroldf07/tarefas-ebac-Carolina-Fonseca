@@ -1,28 +1,13 @@
 package produto.service;
 
-import produto.dao.ProdutoDao;
+import generic.GenericServiceImpl;
+import generic.dao.GenericDao;
 import produto.domain.Produto;
 
-public class ProdutoService {
-    private final ProdutoDao produtoDao;
+public class ProdutoService extends GenericServiceImpl<Produto,Long> {
 
-    public ProdutoService(ProdutoDao produtoDao) {
-        this.produtoDao = produtoDao;
-    }
 
-    public boolean cadastrar(Produto produto) {
-        return produtoDao.cadastrar(produto);
-    }
-
-    public Produto procurar(long codigo) {
-        return produtoDao.buscar(codigo);
-    }
-
-    public void atualizar(Produto produto) {
-        produtoDao.atualizar(produto);
-    }
-
-    public void deletar(long codigo) {
-        produtoDao.deletar(codigo);
+    public ProdutoService(GenericDao<Produto, Long> dao) {
+        super(dao);
     }
 }
