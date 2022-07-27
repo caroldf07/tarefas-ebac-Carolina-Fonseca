@@ -1,4 +1,3 @@
 package generic.dao;
 
-public interface Persistente {
-}
+public interface Persistente {}

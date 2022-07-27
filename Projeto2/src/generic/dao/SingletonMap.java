@@ -4,23 +4,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SingletonMap {
-    private static SingletonMap singletonMap;
+  private static SingletonMap singletonMap;
 
-    protected Map<Class, Map<?, ?>> map;
+  protected Map<Class, Map<?, ?>> map;
 
-    private SingletonMap() {
-        map = new HashMap<>();
+  private SingletonMap() {
+    map = new HashMap<>();
+  }
+
+  public static SingletonMap getInstance() {
+    if (singletonMap == null) {
+      singletonMap = new SingletonMap();
     }
 
-    public static SingletonMap getInstance() {
-        if (singletonMap == null) {
-            singletonMap = new SingletonMap();
-        }
+    return singletonMap;
+  }
 
-        return singletonMap;
-    }
-
-    public Map<Class, Map<?, ?>> getMap() {
-        return this.map;
-    }
+  public Map<Class, Map<?, ?>> getMap() {
+    return this.map;
+  }
 }

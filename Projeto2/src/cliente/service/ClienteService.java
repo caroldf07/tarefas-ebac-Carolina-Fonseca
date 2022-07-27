@@ -5,7 +5,7 @@ import generic.GenericServiceImpl;
 import generic.dao.GenericDao;
 
 public class ClienteService extends GenericServiceImpl<Cliente, String> {
-    public ClienteService(GenericDao<Cliente, String> dao) {
-        super(dao);
-    }
+  public ClienteService(GenericDao<Cliente, String> dao) {
+    super(dao);
+  }
 }
