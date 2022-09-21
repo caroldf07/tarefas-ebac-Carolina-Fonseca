@@ -1,7 +1,7 @@
-package dao.generic.jdbc.dao;
+package main.cliente.dao;
 
-import dao.generic.jdbc.ConnectionFactory;
-import domain.Cliente;
+import main.cliente.domain.Cliente;
+import main.generic.jdbc.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

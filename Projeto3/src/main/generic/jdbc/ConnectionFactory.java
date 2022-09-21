@@ -1,4 +1,4 @@
-package dao.generic.jdbc;
+package main.generic.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,16 +11,20 @@ public class ConnectionFactory {
     private ConnectionFactory(Connection connection) {
     }
 
-    public static Connection getConnection() {
+    public static Connection getConnection() throws SQLException {
         if (connection == null) {
             connection = initConnection();
+        } else if (connection != null && connection.isClosed()) {
+            connection = initConnection();
+        } else {
+            return connection;
         }
         return connection;
     }
 
     private static Connection initConnection() {
         try {
-            return DriverManager.getConnection("jdbc:postgresql://localhost15432/vendas", "postgres",
+            return DriverManager.getConnection("jdbc:postgresql://localhost5432/vendas", "postgres",
                     "postgres");
         } catch (SQLException e) {
             throw new RuntimeException(e);

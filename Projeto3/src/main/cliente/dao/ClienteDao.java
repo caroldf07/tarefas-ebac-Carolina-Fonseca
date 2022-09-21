@@ -1,6 +1,6 @@
-package dao.generic.jdbc.dao;
+package main.cliente.dao;
 
-import domain.Cliente;
+import main.cliente.domain.Cliente;
 
 import java.sql.SQLException;
 import java.util.List;

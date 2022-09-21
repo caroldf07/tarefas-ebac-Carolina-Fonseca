@@ -1,4 +1,4 @@
-package domain;
+package main.cliente.domain;
 
 public class Cliente {
     private Long id;
