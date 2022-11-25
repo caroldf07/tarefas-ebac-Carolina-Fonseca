@@ -1,4 +1,3 @@
 package main.java.domain;
 
-public class Acessorio {
-}
+public class Acessorio {}

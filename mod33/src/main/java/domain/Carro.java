@@ -1,4 +1,3 @@
 package main.java.domain;
 
-public class Carro {
-}
+public class Carro {}
