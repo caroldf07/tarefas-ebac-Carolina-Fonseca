@@ -7,11 +7,18 @@ import javax.persistence.criteria.*;
 import java.util.List;
 
 public class ProdutoDaoImp implements ProdutoDao {
+
+    private final EntityManagerFactory entityManagerFactory;
+    private final EntityManager entityManager;
+
+    public ProdutoDaoImp() {
+        this.entityManagerFactory =
+                Persistence.createEntityManagerFactory("ExemploJPA");
+        this.entityManager = entityManagerFactory.createEntityManager();
+    }
+
     @Override
     public Produto cadastrar(Produto produto) {
-        EntityManagerFactory entityManagerFactory =
-                Persistence.createEntityManagerFactory("ExemploJPA");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
         entityManager.persist(produto);
@@ -24,9 +31,6 @@ public class ProdutoDaoImp implements ProdutoDao {
 
     @Override
     public void excluir(Produto produto) {
-        EntityManagerFactory entityManagerFactory =
-                Persistence.createEntityManagerFactory("ExemploJPA");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
         produto = entityManager.merge(produto);
@@ -39,11 +43,6 @@ public class ProdutoDaoImp implements ProdutoDao {
 
     @Override
     public List<Produto> buscarTodos() {
-        EntityManagerFactory entityManagerFactory =
-                Persistence.createEntityManagerFactory("ExemploJPA");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Produto> query = builder.createQuery(Produto.class);
         Root<Produto> root = query.from(Produto.class);
@@ -56,5 +55,13 @@ public class ProdutoDaoImp implements ProdutoDao {
         entityManager.close();
         entityManagerFactory.close();
         return list;
+    }
+
+    @Override
+    public Produto buscarPorId(Produto produto) {
+        Produto produtoEncontrado = entityManager.find(Produto.class, produto);
+        entityManager.close();
+        entityManagerFactory.close();
+        return produtoEncontrado;
     }
 }

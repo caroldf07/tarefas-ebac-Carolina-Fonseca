@@ -11,4 +11,6 @@ public interface ProdutoDao {
     public void excluir(Produto produto);
 
     public List<Produto> buscarTodos();
+
+    public Produto buscarPorId(Produto produto);
 }
