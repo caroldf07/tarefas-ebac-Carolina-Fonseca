@@ -1,7 +1,7 @@
 package main.java.dao.generic;
 
 public interface Persistente {
-    Long getId();
+  Long getId();
 
-    void setId(Long id);
+  void setId(Long id);
 }
