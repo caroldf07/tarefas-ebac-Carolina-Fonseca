@@ -1,14 +1,14 @@
 package testeGerenciador;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 class MainTest {
-    @Test
-    @DisplayName("Teste simples")
-    void test() {
-        assertTrue(true);
-    }
+  @Test
+  @DisplayName("Teste simples")
+  void test() {
+    assertTrue(true);
+  }
 }
