@@ -9,8 +9,8 @@ import java.util.List;
 @Table(name = "tb_marca")
 public class Marca implements Persistente {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "produto_seq")
-    @SequenceGenerator(name = "produto_seq", sequenceName = "sq_produto", initialValue = 10,
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "marca_seq")
+    @SequenceGenerator(name = "marca_seq", sequenceName = "marca_produto", initialValue = 10,
             allocationSize = 1)
     private Long id;
 

@@ -9,8 +9,8 @@ import java.util.List;
 @Table(name = "tb_carro")
 public class Carro implements Persistente {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "produto_seq")
-    @SequenceGenerator(name = "produto_seq", sequenceName = "sq_produto", initialValue = 10,
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "carro_seq")
+    @SequenceGenerator(name = "carro_seq", sequenceName = "sq_carro", initialValue = 10,
             allocationSize = 1)
     private Long id;
 

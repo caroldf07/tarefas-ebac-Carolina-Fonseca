@@ -8,8 +8,8 @@ import javax.persistence.*;
 @Table(name = "tb_acessorio")
 public class Acessorio implements Persistente {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "produto_seq")
-    @SequenceGenerator(name = "produto_seq", sequenceName = "sq_produto", initialValue = 10,
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "acessorio_seq")
+    @SequenceGenerator(name = "acessorio_seq", sequenceName = "sq_acessorio", initialValue = 10,
             allocationSize = 1)
     private Long id;
 
