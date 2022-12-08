@@ -1,6 +1,4 @@
-/**
- * 
- */
+/** */
 package main.java.anotacao;
 
 import java.lang.annotation.Documented;
@@ -11,14 +9,13 @@ import java.lang.annotation.Target;
 
 /**
  * @author rodrigo.pires
- *
  */
 @Documented
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ColunaTabela {
 
-	String dbName();
-	
-	String setJavaName();
+  String dbName();
+
+  String setJavaName();
 }

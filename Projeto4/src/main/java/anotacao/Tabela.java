@@ -1,6 +1,4 @@
-/**
- * 
- */
+/** */
 package main.java.anotacao;
 
 import java.lang.annotation.Documented;
@@ -11,12 +9,11 @@ import java.lang.annotation.Target;
 
 /**
  * @author rodrigo.pires
- *
  */
 @Documented
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Tabela {
 
-	String value();
+  String value();
 }
