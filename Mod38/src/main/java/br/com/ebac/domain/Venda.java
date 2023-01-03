@@ -1,12 +1,4 @@
-/**
- * 
- */
-package main.java.br.com.rpires.domain;
-
-import main.java.anotacao.ColunaTabela;
-import main.java.anotacao.Tabela;
-import main.java.anotacao.TipoChave;
-import main.java.br.com.rpires.dao.Persistente;
+package br.com.ebac.domain;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -14,11 +6,22 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-/**
- * @author rodrigo.pires
- *
- */
-@Tabela("TB_VENDA")
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+@Entity
+@Table(name = "TB_VENDA")
 public class Venda implements Persistente {
 	
 	public enum Status {
@@ -34,26 +37,32 @@ public class Venda implements Persistente {
 		}
 	}
 	
-	@ColunaTabela(dbName = "id", setJavaName = "setId")
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="venda_seq")
+	@SequenceGenerator(name="venda_seq", sequenceName="sq_venda", initialValue = 1, allocationSize = 1)
 	private Long id;
 
-	@TipoChave("getCodigo")
-	@ColunaTabela(dbName = "codigo", setJavaName = "setCodigo")
+	@Column(name = "CODIGO", nullable = false, unique = true)
 	private String codigo;
 	
-	@ColunaTabela(dbName = "id_cliente_fk", setJavaName = "setIdClienteFk")
+	@ManyToOne
+	@JoinColumn(name = "id_cliente_fk", 
+		foreignKey = @ForeignKey(name = "fk_venda_cliente"), 
+		referencedColumnName = "id", nullable = false
+	)
 	private Cliente cliente;
-	
-	//@ColunaTabela(dbName = "id", setJavaName = "setId")
+
+	@OneToMany(mappedBy = "venda", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<ProdutoQuantidade> produtos;
 	
-	@ColunaTabela(dbName = "valor_total", setJavaName = "setValorTotal")
+	@Column(name = "VALOR_TOTAL", nullable = false)
 	private BigDecimal valorTotal;
 	
-	@ColunaTabela(dbName = "data_venda", setJavaName = "setDataVenda")
+	@Column(name = "DATA_VENDA", nullable = false)
 	private Instant dataVenda;
 	
-	@ColunaTabela(dbName = "status_venda", setJavaName = "setStatus")
+	@Enumerated(EnumType.STRING)
+	@Column(name = "STATUS_VENDA", nullable = false)
 	private Status status;
 	
 	public Venda() {
@@ -90,6 +99,7 @@ public class Venda implements Persistente {
 		} else {
 			// Criar fabrica para criar ProdutoQuantidade
 			ProdutoQuantidade prod = new ProdutoQuantidade();
+			prod.setVenda(this);
 			prod.setProduto(produto);
 			prod.adicionar(quantidade);
 			produtos.add(prod);
@@ -128,14 +138,11 @@ public class Venda implements Persistente {
 	}
 	
 	public Integer getQuantidadeTotalProdutos() {
-		// Soma a quantidade getQuantidade() de todos os objetos ProdutoQuantidade
-		int result = produtos.stream()
-		  .reduce(0, (partialCountResult, prod) -> partialCountResult + prod.getQuantidade(), Integer::sum);
-		return result;
+		return produtos.stream()
+				.reduce(0, (partialCountResult, prod) -> partialCountResult + prod.getQuantidade(), Integer::sum);
 	}
 	
 	public void recalcularValorTotalVenda() {
-		//validarStatus();
 		BigDecimal valorTotal = BigDecimal.ZERO;
 		for (ProdutoQuantidade prod : this.produtos) {
 			valorTotal = valorTotal.add(prod.getValorTotal());
