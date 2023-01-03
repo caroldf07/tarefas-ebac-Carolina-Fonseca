@@ -7,9 +7,10 @@ import main.java.br.com.rpires.domain.ClienteJpa2;
 /**
  * @author rodrigo.pires
  */
-public class ClienteDB3DAO extends GenericJpaDB3Dao<Cliente, Long> implements IClienteDAO<ClienteJpa2> {
+public class ClienteDB3DAO extends GenericJpaDB3Dao<Cliente, Long>
+    implements IClienteDAO<ClienteJpa2> {
 
-    public ClienteDB3DAO() {
-        super(Cliente.class);
-    }
+  public ClienteDB3DAO() {
+    super(Cliente.class);
+  }
 }

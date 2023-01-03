@@ -8,7 +8,7 @@ import main.java.br.com.rpires.domain.Cliente;
  */
 public class ClienteDB2DAO extends GenericJpaDB2Dao<Cliente, Long> implements IClienteDAO<Cliente> {
 
-    public ClienteDB2DAO() {
-        super(Cliente.class);
-    }
+  public ClienteDB2DAO() {
+    super(Cliente.class);
+  }
 }
