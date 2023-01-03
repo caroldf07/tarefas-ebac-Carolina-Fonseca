@@ -1,7 +1,6 @@
 package br.com.ebac.domain;
 
 import java.math.BigDecimal;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,66 +9,70 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
 @Entity
 @Table(name = "TB_PRODUTO")
-@NamedQuery(name = "Produto.findByNome", query = "SELECT c FROM Produto c WHERE c.nome LIKE :nome") 
+@NamedQuery(name = "Produto.findByNome", query = "SELECT c FROM Produto c WHERE c.nome LIKE :nome")
 public class Produto implements Persistente {
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="prod_seq")
-	@SequenceGenerator(name="prod_seq", sequenceName="sq_produto", initialValue = 1, allocationSize = 1)
-	private Long id;
 
-	@Column(name = "codigo", nullable = false, length = 10, unique = true)
-	private String codigo;
-	
-	@Column(name = "NOME", nullable = false, length = 50)
-	private String nome;
-	
-	@Column(name = "DESCRICAO", nullable = false, length = 50)
-	private String descricao;
-	
-	@Column(name = "valor", nullable = false)
-	private BigDecimal valor;
+  @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "prod_seq")
+  @SequenceGenerator(
+      name = "prod_seq",
+      sequenceName = "sq_produto",
+      initialValue = 1,
+      allocationSize = 1)
+  private Long id;
 
-	public String getCodigo() {
-		return codigo;
-	}
+  @Column(name = "codigo", nullable = false, length = 10, unique = true)
+  private String codigo;
 
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
+  @Column(name = "NOME", nullable = false, length = 50)
+  private String nome;
 
-	public String getNome() {
-		return nome;
-	}
+  @Column(name = "DESCRICAO", nullable = false, length = 50)
+  private String descricao;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+  @Column(name = "valor", nullable = false)
+  private BigDecimal valor;
 
-	public String getDescricao() {
-		return descricao;
-	}
+  public String getCodigo() {
+    return codigo;
+  }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+  public void setCodigo(String codigo) {
+    this.codigo = codigo;
+  }
 
-	public BigDecimal getValor() {
-		return valor;
-	}
+  public String getNome() {
+    return nome;
+  }
 
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
-	}
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 
-	public Long getId() {
-		return id;
-	}
+  public String getDescricao() {
+    return descricao;
+  }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
+  public void setDescricao(String descricao) {
+    this.descricao = descricao;
+  }
+
+  public BigDecimal getValor() {
+    return valor;
+  }
+
+  public void setValor(BigDecimal valor) {
+    this.valor = valor;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 }

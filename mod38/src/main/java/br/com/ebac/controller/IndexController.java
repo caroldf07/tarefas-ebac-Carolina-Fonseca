@@ -1,7 +1,6 @@
 package br.com.ebac.controller;
 
 import java.io.Serializable;
-
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
@@ -9,17 +8,17 @@ import javax.inject.Named;
 @ViewScoped
 public class IndexController implements Serializable {
 
-	private static final long serialVersionUID = -784519597996507487L;
+  private static final long serialVersionUID = -784519597996507487L;
 
-	public String redirectCliente() {
-		return "/cliente/list.xhtml";
-	}
-	
-	public String redirectProduto() {
-		return "/produto/list.xhtml";
-	}
-	
-	public String redirectVenda() {
-		return "/venda/list.xhtml";
-	}
+  public String redirectCliente() {
+    return "/cliente/list.xhtml";
+  }
+
+  public String redirectProduto() {
+    return "/produto/list.xhtml";
+  }
+
+  public String redirectVenda() {
+    return "/venda/list.xhtml";
+  }
 }
