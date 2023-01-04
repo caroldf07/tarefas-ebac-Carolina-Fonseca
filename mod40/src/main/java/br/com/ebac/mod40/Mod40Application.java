@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Mod40Application {
 
-    public static void main(String[] args) {
-        SpringApplication.run(Mod40Application.class, args);
-    }
-
+  public static void main(String[] args) {
+    SpringApplication.run(Mod40Application.class, args);
+  }
 }

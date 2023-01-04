@@ -1,6 +1,4 @@
-/**
- *
- */
+/** */
 package main.java.br.com.rpires.dao;
 
 import main.java.br.com.rpires.dao.generic.GenericDAO;
@@ -13,18 +11,17 @@ import main.java.br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
  */
 public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 
+  public VendaDAO() {
+    super(Venda.class);
+  }
 
-    public VendaDAO() {
-        super(Venda.class);
-    }
+  @Override
+  public void finalizarVenda(Venda venda) throws TipoChaveNaoEncontradaException, DAOException {
+    super.alterar(venda);
+  }
 
-    @Override
-    public void finalizarVenda(Venda venda) throws TipoChaveNaoEncontradaException, DAOException {
-        super.alterar(venda);
-    }
-
-    @Override
-    public void cancelarVenda(Venda venda) throws TipoChaveNaoEncontradaException, DAOException {
-        super.alterar(venda);
-    }
+  @Override
+  public void cancelarVenda(Venda venda) throws TipoChaveNaoEncontradaException, DAOException {
+    super.alterar(venda);
+  }
 }
