@@ -1,5 +1,8 @@
 package br.com.ebac;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+
 import br.com.ebac.domain.Cliente;
 import br.com.ebac.reources.ClienteResource;
 import br.com.ebac.usecase.BuscaCliente;
@@ -14,39 +17,32 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.ResponseEntity;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.when;
-
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 class ClienteResourceTest {
 
-    @InjectMocks
-    private ClienteResource clienteResource;
+  @InjectMocks private ClienteResource clienteResource;
 
-    @MockBean
-    private BuscaCliente buscaCliente;
+  @MockBean private BuscaCliente buscaCliente;
 
-    @MockBean
-    private CadastroCliente cadastroCliente;
+  @MockBean private CadastroCliente cadastroCliente;
 
-    @BeforeEach
-    public void setup() {
-        MockitoAnnotations.openMocks(this);
-    }
+  @BeforeEach
+  public void setup() {
+    MockitoAnnotations.openMocks(this);
+  }
 
-    @Test
-    void buscarPorId() {
-        Cliente cliente1 = Cliente.builder().id("1").nome("Rodrigo 1").build();
+  @Test
+  void buscarPorId() {
+    Cliente cliente1 = Cliente.builder().id("1").nome("Rodrigo 1").build();
 
-        when(buscaCliente.buscarPorId("1")).thenReturn(cliente1);
+    when(buscaCliente.buscarPorId("1")).thenReturn(cliente1);
 
-        ResponseEntity<Cliente> result = clienteResource.buscarPorId("1");
+    ResponseEntity<Cliente> result = clienteResource.buscarPorId("1");
 
-        Cliente clienteResult = result.getBody();
-        assertThat(clienteResult).isEqualTo(cliente1);
-        assertThat(clienteResult.getId()).isEqualTo(cliente1.getId());
-        assertThat(clienteResult.getNome()).isEqualTo(cliente1.getNome());
-    }
-
+    Cliente clienteResult = result.getBody();
+    assertThat(clienteResult).isEqualTo(cliente1);
+    assertThat(clienteResult.getId()).isEqualTo(cliente1.getId());
+    assertThat(clienteResult.getNome()).isEqualTo(cliente1.getNome());
+  }
 }
